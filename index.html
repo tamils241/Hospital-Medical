@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital & Medical Center</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <h2 style="color: var(--primary); margin-top: 15px;">Stackly</h2>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" aria-label="Stackly home">
+                <img src="images/logo/logo.webp" alt="Stackly Logo" class="logo-img" />
+               
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Header Navigation Bar -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="doctors.html">Doctor</a></li>
+                    <li><a href="services.html">Service</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <!-- Auth Buttons -->
+                <div class="auth-buttons" style="display: flex; gap: 10px; margin-left: 20px;">
+                    <a href="page/Login.html" class="btn btn-outline">Login</a>
+                    <a href="page/Register.html" class="btn btn-primary">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero fade-in-section">
+            <!-- Background Video -->
+            <video class="hero-video" autoplay loop muted playsinline>
+                <source src="assest/videos/wavebreak_Hospital.mp4.mp4" type="video/mp4">
+            </video>
+            <div class="container hero-content">
+                <h1>Your Health, Our Priority</h1>
+                <p>Providing world-class healthcare, advanced medical services, and compassionate patient care.</p>
+                <div class="hero-actions" style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+                    <a href="appointment.html" class="btn btn-primary">Schedule a Visit</a>
+                    <a href="departments.html" class="btn btn-outline" style="background: white;">Our Departments</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hospital Stats & Growth Section -->
+        <section class="stats section-padding fade-in-section" style="background-color: var(--white);">
+            <div class="container">
+                <div class="grid stats-grid">
+                    <div class="stat-card">
+                        <div class="icon-wrapper"></div>
+                        <h3 class="stat-number">25+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon-wrapper"></div>
+                        <h3 class="stat-number">50k+</h3>
+                        <p>Hospital Growth</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon-wrapper"></div>
+                        <h3 class="stat-number">150+</h3>
+                        <p>Expert Doctors</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon-wrapper"></div>
+                        <h3 class="stat-number">24/7</h3>
+                        <p>Emergency Support</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Medical Services Section -->
+        <section class="services section-padding fade-in-section">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2.2rem; color: var(--primary-dark);">Our Medical Services</h2>
+                    <p style="color: var(--text); font-size: 1.1rem;">Comprehensive care tailored to your needs</p>
+                </div>
+                
+                <div class="grid services-grid">
+                    <div class="service-card">
+                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">🩺</div>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">General Checkup</h3>
+                        <p>Routine health examinations to keep your well-being on track.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">❤️</div>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Cardiology</h3>
+                        <p>Advanced heart care and cardiovascular treatments.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">🚑</div>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Emergency Care</h3>
+                        <p>24/7 urgent medical services with immediate response.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">🧠</div>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Neurology</h3>
+                        <p>Expert treatment for disorders of the brain and nervous system.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">🦴</div>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Orthopedics</h3>
+                        <p>Comprehensive care for bones, joints, ligaments, tendons, and muscles.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">🦷</div>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Dental Care</h3>
+                        <p>Complete dental services including routine checkups and advanced procedures.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">👶</div>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Pediatrics</h3>
+                        <p>Specialized medical care for infants, children, and adolescents.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">👁️</div>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Ophthalmology</h3>
+                        <p>Comprehensive eye care, vision testing, and surgical treatments.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">🧴</div>
+                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Dermatology</h3>
+                        <p>Advanced treatments and care for skin, hair, and nail conditions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Excellence Section -->
+        <section class="excellence section-padding fade-in-section" style="background-color: var(--light-gray);">
+            <div class="container excellence-container">
+                <div class="excellence-image">
+                    <img src="images/doctors/doctor-9.webp" alt="Excellence in Healthcare">
+                </div>
+                <div class="excellence-content" style="text-align: left;">
+                    <h2 style="font-size: 2.2rem; color: var(--primary-dark); margin-bottom: 15px;">Excellence in Every Detail</h2>
+                    <p style="color: var(--text); font-size: 1.1rem; margin-bottom: 30px;">We combine the warmth of a community hospital with the precision of a world-class research center — because your health deserves nothing less.</p>
+
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">🤖</div>
+                            <div class="feature-text">
+                                <h4>AI-Powered Diagnostics</h4>
+                                <p>Machine learning algorithms assist our radiologists for faster, more accurate readings.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🤝</div>
+                            <div class="feature-text">
+                                <h4>Multidisciplinary Teams</h4>
+                                <p>Specialists collaborate in tumor boards and complex case conferences for optimal outcomes.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">❤️</div>
+                            <div class="feature-text">
+                                <h4>Patient-First Philosophy</h4>
+                                <p>Every protocol, every decision, every interaction centers on patient dignity and comfort.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🌍</div>
+                            <div class="feature-text">
+                                <h4>International Standards</h4>
+                                <p>JCI-aligned protocols, sterile environments, and global best practices in patient safety.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Doctors Section -->
+        <section class="team section-padding fade-in-section">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2.2rem; color: var(--primary-dark);">Meet Our Specialists</h2>
+                    <p style="color: var(--text); font-size: 1.1rem;">Highly qualified and experienced medical professionals</p>
+                </div>
+                
+                <div class="grid team-grid">
+                    <div class="team-card">
+                        <img src="images/doctors/doctor-1.webp" alt="Dr. Sarah Johnson">
+                        <div class="team-info">
+                            <h3>Dr. Sarah Johnson</h3>
+                            <p class="specialty">Chief Cardiologist</p>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <img src="images/doctors/doctor-2.webp" alt="Dr. Michael Lee">
+                        <div class="team-info">
+                            <h3>Dr. Michael Lee</h3>
+                            <p class="specialty">Neurology Specialist</p>
+                        </div>
+                    </div>
+                    <div class="team-card">
+                        <img src="images/doctors/doctor-3.webp" alt="Dr. Emily Chen">
+                        <div class="team-info">
+                            <h3>Dr. Emily Chen</h3>
+                            <p class="specialty">Lead Pediatrician</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="doctors.html" class="btn btn-outline">View All Doctors</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section class="technology section-padding fade-in-section" style="background-color: var(--white);">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2.2rem; color: var(--primary-dark);">Advanced Technology</h2>
+                    <p style="color: var(--text); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">State-of-the-art equipment and digital infrastructure enabling better care at every touchpoint.</p>
+                </div>
+
+                <div class="grid">
+                    <div class="tech-card">
+                        <span class="tech-number">01</span>
+                        <h3>3T MRI Imaging</h3>
+                        <p>High-resolution magnetic resonance imaging for precise soft-tissue diagnosis.</p>
+                    </div>
+                    <div class="tech-card">
+                        <span class="tech-number">02</span>
+                        <h3>Genomic Testing</h3>
+                        <p>Next-generation sequencing for personalized cancer treatment plans.</p>
+                    </div>
+                    <div class="tech-card">
+                        <span class="tech-number">03</span>
+                        <h3>Robotic Surgery</h3>
+                        <p>Da Vinci surgical system for minimally invasive precision procedures.</p>
+                    </div>
+                    <div class="tech-card">
+                        <span class="tech-number">04</span>
+                        <h3>Digital Health Records</h3>
+                        <p>Unified patient data platform ensuring continuity across all care touchpoints.</p>
+                    </div>
+                    <div class="tech-card">
+                        <span class="tech-number">05</span>
+                        <h3>Proton Therapy</h3>
+                        <p>Advanced radiation oncology with minimal collateral tissue damage.</p>
+                    </div>
+                    <div class="tech-card">
+                        <span class="tech-number">06</span>
+                        <h3>Tele-ICU Monitoring</h3>
+                        <p>24/7 remote intensivist oversight for every critical care patient.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lives Transformed Section -->
+        <section class="transformed section-padding fade-in-section" style="background-color: var(--light-gray);">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2.2rem; color: var(--primary-dark);">Lives Transformed</h2>
+                    <p style="color: var(--text); font-size: 1.1rem; max-width: 700px; margin: 0 auto;">Read the inspiring stories and experiences of our patients who trusted us with their care.</p>
+                </div>
+
+                <div class="grid">
+                    <div class="transformed-card">
+                        <div class="quote-icon">❝</div>
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="patient-story">"The multidisciplinary team at MediCare gave me a second chance at life. Their dedication and compassion are truly unmatched."</p>
+                        <div class="patient-profile">
+                            <img src="images/doctors/doctor-1.webp" alt="John D." class="patient-image">
+                            <div class="patient-info">
+                                <h4 class="patient-name">John D.</h4>
+                                <span class="patient-treatment">Cardiology Patient</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transformed-card">
+                        <div class="quote-icon">❝</div>
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="patient-story">"From diagnosis to recovery, the robotic surgery was seamless and surprisingly painless. I was back on my feet in no time."</p>
+                        <div class="patient-profile">
+                            <img src="images/doctors/doctor-2.webp" alt="Sarah M." class="patient-image">
+                            <div class="patient-info">
+                                <h4 class="patient-name">Sarah M.</h4>
+                                <span class="patient-treatment">Orthopedics Patient</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transformed-card">
+                        <div class="quote-icon">❝</div>
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="patient-story">"The pediatric unit took amazing care of our daughter. The doctors were patient, kind, and explained everything clearly. Forever grateful."</p>
+                        <div class="patient-profile">
+                            <img src="images/doctors/doctor-3.webp" alt="The Williams Family" class="patient-image">
+                            <div class="patient-info">
+                                <h4 class="patient-name">The Williams Family</h4>
+                                <span class="patient-treatment">Pediatrics</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transformed-card">
+                        <div class="quote-icon">❝</div>
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="patient-story">"State-of-the-art facilities and top-notch doctors made all the difference during my complex neurological treatment."</p>
+                        <div class="patient-profile">
+                            <img src="images/doctors/doctor-4.webp" alt="Robert K." class="patient-image">
+                            <div class="patient-info">
+                                <h4 class="patient-name">Robert K.</h4>
+                                <span class="patient-treatment">Neurology Patient</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transformed-card">
+                        <div class="quote-icon">❝</div>
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="patient-story">"My knee replacement surgery went perfectly. The rehabilitation support I received afterward helped me get back to running again!"</p>
+                        <div class="patient-profile">
+                            <img src="images/doctors/doctor-9.webp" alt="Emma T." class="patient-image">
+                            <div class="patient-info">
+                                <h4 class="patient-name">Emma T.</h4>
+                                <span class="patient-treatment">Physical Therapy</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="transformed-card">
+                        <div class="quote-icon">❝</div>
+                        <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                        <p class="patient-story">"The 24/7 tele-ICU monitoring provided us with absolute peace of mind during a very tough time for our family."</p>
+                        <div class="patient-profile">
+                            <img src="images/doctors/doctor-1.webp" alt="Michael B." class="patient-image">
+                            <div class="patient-info">
+                                <h4 class="patient-name">Michael B.</h4>
+                                <span class="patient-treatment">Critical Care</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call To Action Section -->
+        <section class="cta-section section-padding fade-in-section">
+            <div class="container">
+                <h2 style="font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 20px;">Your Health Is Our Priority</h2>
+                <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; opacity: 0.9;">Don't wait. Schedule your comprehensive health check-up today and take control of your well-being.</p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <a href="appointment.html" class="btn btn-cta-primary">Book a Health Check-Up</a>
+                    <a href="tel:1800STACKLY" class="btn btn-cta-outline">Call: 1800-STACKLY</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <!-- About Column -->
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo/logo.webp" alt="Stackly Logo" class="logo-img" />
+                        <span class="logo-text">Stackly</span>
+                    </a>
+                    <p>Providing world-class healthcare, advanced medical services, and compassionate patient care for you and your family.</p>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="doctors.html">Find a Doctor</a></li>
+                        <li><a href="appointment.html">Book Appointment</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Column -->
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html">General Checkup</a></li>
+                        <li><a href="services.html">Cardiology</a></li>
+                        <li><a href="services.html">Neurology</a></li>
+                        <li><a href="services.html">Orthopedics</a></li>
+                        <li><a href="services.html">Emergency Care</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom" style="text-align: center; border-top: 1px solid rgba(14, 165, 233, 0.25); padding-top: 20px;">
+                <p>&copy; 2026 MediCare Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

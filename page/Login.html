@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Hospital & Medical </title>
+  <link rel="stylesheet" href="../css/Login.css">
+</head>
+<body>
+  <main class="auth-page">
+    <section class="auth-panel">
+      <div class="auth-visual">
+        <a class="auth-brand" href="../index.html">
+          <img src="../images/logo/logo.webp" alt="Hospital & Medical logo">
+        </a>
+        <div>
+          <p class="visual-label">Hospital & Medical</p>
+         <h2>Welcome Back </h2>
+         <p class="hero-text">
+         Your trusted health partner. Continue your care journey with Stackly's world-class medical services.
+         </p>
+        </div>
+      </div>
+
+      <div class="auth-card">
+        <div class="auth-copy">
+          <p class="auth-label">Welcome back</p>
+          <h1>Login to your account</h1>
+          <p class="auth-text">
+           Access your dashboard, Patients ,Admin.
+          </p>
+        </div>
+
+        <form class="auth-form login-form" novalidate>
+          <label>Sign in as</label>
+          <div class="role-selector">
+            <label class="role-option">
+              <input type="radio" name="role" value="customer" required>
+              <span class="role-box">Patients</span>
+            </label>
+            <label class="role-option">
+              <input type="radio" name="role" value="admin" required>
+              <span class="role-box">Admin</span>
+            </label>
+          </div>
+
+          <label for="login-email">Email address</label>
+          <input id="login-email" type="email" placeholder="you@example.com" required autocomplete="username">
+
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" placeholder="Minimum 8 characters" required autocomplete="current-password">
+
+          <div class="form-row">
+            <label class="remember">
+              <input type="checkbox" id="remember-me" name="remember">
+              <span>Remember me</span>
+            </label>
+            <button class="link-button forgot-toggle" type="button">Forgot password?</button>
+          </div>
+
+          <p class="form-message" aria-live="polite"></p>
+          <button class="auth-submit" type="submit">Login</button>
+        </form>
+
+        <form class="auth-form forgot-form" novalidate hidden>
+          <label for="forgot-email">Registered email address</label>
+          <input id="forgot-email" type="email" placeholder="you@example.com" required>
+          <p class="forgot-message" aria-live="polite"></p>
+          <button class="auth-submit" type="submit">Send reset link</button>
+          <button class="link-button back-login" type="button">Back to login</button>
+        </form>
+
+        <p class="auth-switch">
+          Don't have an account?
+          <a href="Register.html">Create account</a>
+        </p>
+
+        <a class="back-home" href="../index.html">Back to Home</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var loginForm = document.querySelector(".login-form");
+      var forgotForm = document.querySelector(".forgot-form");
+      var forgotToggle = document.querySelector(".forgot-toggle");
+      var backLogin = document.querySelector(".back-login");
+      var formMessage = document.querySelector(".form-message");
+      var forgotMessage = document.querySelector(".forgot-message");
+      var rememberMe = document.querySelector("#remember-me");
+      var passwordInput = document.querySelector("#login-password");
+      var isValidEmail = function (e) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e); };
+
+      var dashboards = {
+        admin: "admin_Dashboard.html",
+        customer: "Patients_Dashboard.html",
+      };
+
+      function saveAuth(role, email, name) {
+        sessionStorage.setItem("authRole", role);
+        sessionStorage.setItem("authEmail", email);
+        sessionStorage.setItem("authName", name);
+        localStorage.setItem("auth", JSON.stringify({ role: role, email: email, name: name }));
+      }
+
+      var params = new URLSearchParams(window.location.search);
+      var roleFromUrl = params.get("role");
+      if (roleFromUrl && dashboards[roleFromUrl]) {
+        var preselectRadio = document.querySelector('input[name="role"][value="' + roleFromUrl + '"]');
+        if (preselectRadio) preselectRadio.checked = true;
+      }
+
+      if (loginForm) {
+        loginForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var checkedRole = document.querySelector('input[name="role"]:checked');
+          var role = checkedRole ? checkedRole.value : "";
+          var email = document.querySelector("#login-email").value.trim();
+          var password = passwordInput.value.trim();
+
+          if (!role) {
+            formMessage.textContent = "Please select Admin or Customer.";
+            formMessage.className = "form-message error";
+            return;
+          }
+
+          if (!rememberMe.checked) {
+            formMessage.textContent = "Please select the Remember me checkbox to continue.";
+            formMessage.className = "form-message error";
+            rememberMe.focus();
+            alert("Please select the Remember me button.");
+            return;
+          }
+
+          if (!isValidEmail(email)) {
+            formMessage.textContent = "Please enter a valid email address.";
+            formMessage.className = "form-message error";
+            return;
+          }
+
+          if (password.length < 8) {
+            formMessage.textContent = "Password must be at least 8 characters.";
+            formMessage.className = "form-message error";
+            passwordInput.focus();
+            return;
+          }
+
+          var profile = JSON.parse(
+            localStorage.getItem("profile:" + email.toLowerCase()) || "{}"
+          );
+          var rawName = profile.name || email.split("@")[0];
+          var displayName = rawName.charAt(0).toUpperCase() + rawName.slice(1);
+
+          saveAuth(role, email, displayName);
+
+          formMessage.textContent = "Login successful. Redirecting...";
+          formMessage.className = "form-message success";
+
+          setTimeout(function () {
+            window.location.href = dashboards[role];
+          }, 600);
+        });
+      }
+
+      if (forgotToggle && loginForm && forgotForm) {
+        forgotToggle.addEventListener("click", function () {
+          loginForm.hidden = true;
+          forgotForm.hidden = false;
+          formMessage.textContent = "";
+          formMessage.className = "form-message";
+        });
+      }
+
+      if (backLogin && loginForm && forgotForm) {
+        backLogin.addEventListener("click", function () {
+          forgotForm.hidden = true;
+          loginForm.hidden = false;
+          forgotMessage.textContent = "";
+          forgotMessage.className = "forgot-message";
+        });
+      }
+
+      if (forgotForm) {
+        forgotForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+          var email = document.querySelector("#forgot-email").value.trim();
+          if (!isValidEmail(email)) {
+            forgotMessage.textContent = "Please enter your registered email address.";
+            forgotMessage.className = "forgot-message error";
+            return;
+          }
+          forgotMessage.textContent = "Password reset link sent successfully.";
+          forgotMessage.className = "forgot-message success";
+          forgotForm.reset();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
