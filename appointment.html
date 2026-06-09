@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Hospital & Medical Center</title>
+    <title>Book Appointment - Hospital & Medical Center</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -37,7 +37,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="doctors.html">Doctor</a></li>
-                    <li><a href="services.html" class="active">Service</a></li>
+                    <li><a href="services.html">Service</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <div class="auth-buttons" style="display: flex; gap: 10px; margin-left: 20px;">
@@ -56,98 +56,63 @@
                 <source src="assets/videos/wavebreak.mp4" type="video/mp4">
             </video>
             <div class="container hero-content">
-                <h1>Our Medical Services</h1>
-                <p>Comprehensive care tailored to your specific needs.</p>
+                <h1>Book an Appointment</h1>
+                <p>Schedule your visit with our expert doctors today and take the first step towards better health.</p>
             </div>
         </section>
 
-        <!-- Image Gallery Section -->
-        <section class="gallery section-padding fade-in-section">
+        <!-- Appointment Form Section -->
+        <section class="section-padding fade-in-section" style="background: linear-gradient(rgba(248, 250, 252, 0.85), rgba(248, 250, 252, 0.85)), url('images/gallery/doctor-shows-results.webp') center/cover fixed;">
             <div class="container">
-                <div class="section-header" style="text-align: center; margin-bottom: 40px;">
-                    <h2 style="font-size: 2.2rem; color: var(--primary-dark);">Our Facility & Hospital</h2>
-                    <p style="color: var(--text); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Take a look inside Stackly Hospital and see the environment where we transform lives.</p>
-                </div>
-                
-                <div class="gallery-slider">
-                    <div class="gallery-slides">
-                        <img src="images/gallery/doctor-shows-results.webp" alt="Gallery Image 1">
-                        <img src="images/gallery/doctor-with-face-mask.webp" alt="Gallery Image 2">
-                        <img src="images/gallery/indian-patient.webp" alt="Gallery Image 3">
-                        <img src="images/gallery/receptionist-working.webp" alt="Gallery Image 4">
-                        <img src="images/gallery/senior-man.webp" alt="Gallery Image 5">
-                    </div>
-                </div>
-            </div>
-        </section>
+                <div style="max-width: 800px; margin: 0 auto; background: var(--surface); padding: 40px; border-radius: 1rem; border: 1px solid var(--border); box-shadow: var(--shadow);">
+                    <h2 style="font-size: 2rem; color: var(--primary-dark); margin-bottom: 25px; text-align: center;">Schedule Your Visit</h2>
+                    
+                    <form id="appointmentForm" style="display: flex; flex-direction: column; gap: 18px;">
+                        
+                        <!-- Grid for inputs to sit side-by-side on desktop -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px;">
+                            
+                            <input id="appName" type="text" placeholder="Full Name" style="padding: 12px 15px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background-color: var(--bg);" maxlength="16" pattern="[a-zA-Z\s]+" title="Please enter your full name (alphabets only, max 16 chars)" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '').slice(0, 16);" required>
+                            
+                            <input id="appMobile" type="tel" placeholder="Mobile Number" style="padding: 12px 15px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background-color: var(--bg);" maxlength="10" pattern="\d{10}" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);" required>
+                            
+                            <input id="appEmail" type="email" placeholder="Email Address" style="padding: 12px 15px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background-color: var(--bg);" required>
+                            
+                            <input type="date" style="padding: 12px 15px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background-color: var(--bg); color: var(--text); font-family: inherit;" required>
+                            
+                            <select style="padding: 12px 15px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background-color: var(--bg); color: var(--text);" required>
+                                <option value="" disabled selected>Select Department</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="pediatrics">Pediatrics</option>
+                                <option value="general">General Checkup</option>
+                                <option value="dermatology">Dermatology</option>
+                            </select>
+                            
+                            <select style="padding: 12px 15px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background-color: var(--bg); color: var(--text);" required>
+                                <option value="" disabled selected>Preferred Doctor (Optional)</option>
+                                <option value="any">Any Available Doctor</option>
+                                <option value="dr-sarah">Dr. Sarah Johnson (Cardiology)</option>
+                                <option value="dr-michael">Dr. Michael Lee (Neurology)</option>
+                                <option value="dr-emily">Dr. Emily Chen (Pediatrics)</option>
+                                <option value="dr-robert">Dr. Robert King (Orthopedics)</option>
+                            </select>
 
-        <!-- Medical Services Section -->
-        <section class="services section-padding fade-in-section" style="background-color: #f0f9ff;">
-            <div class="container">
-                <div class="grid services-grid">
-                    <div class="service-card" style="background-color: #e0f2fe;">
-                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">🩺</div>
-                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">General Checkup</h3>
-                        <p>Routine health examinations to keep your well-being on track.</p>
-                    </div>
-                    <div class="service-card" style="background-color: #e0f2fe;">
-                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">❤️</div>
-                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Cardiology</h3>
-                        <p>Advanced heart care and cardiovascular treatments.</p>
-                    </div>
-                    <div class="service-card" style="background-color: #e0f2fe;">
-                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">🚑</div>
-                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Emergency Care</h3>
-                        <p>24/7 urgent medical services with immediate response.</p>
-                    </div>
-                    <div class="service-card" style="background-color: #e0f2fe;">
-                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">🧠</div>
-                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Neurology</h3>
-                        <p>Expert treatment for disorders of the brain and nervous system.</p>
-                    </div>
-                    <div class="service-card" style="background-color: #e0f2fe;">
-                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">🦴</div>
-                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Orthopedics</h3>
-                        <p>Comprehensive care for bones, joints, ligaments, tendons, and muscles.</p>
-                    </div>
-                    <div class="service-card" style="background-color: #e0f2fe;">
-                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">🦷</div>
-                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Dental Care</h3>
-                        <p>Complete dental services including routine checkups and advanced procedures.</p>
-                    </div>
-                    <div class="service-card" style="background-color: #e0f2fe;">
-                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">👶</div>
-                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Pediatrics</h3>
-                        <p>Specialized medical care for infants, children, and adolescents.</p>
-                    </div>
-                    <div class="service-card" style="background-color: #e0f2fe;">
-                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">👁️</div>
-                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Ophthalmology</h3>
-                        <p>Comprehensive eye care, vision testing, and surgical treatments.</p>
-                    </div>
-                    <div class="service-card" style="background-color: #e0f2fe;">
-                        <div class="icon-wrapper" style="font-size: 3rem; margin-bottom: 15px;">🧴</div>
-                        <h3 style="color: var(--primary-dark); margin-bottom: 10px;">Dermatology</h3>
-                        <p>Advanced treatments and care for skin, hair, and nail conditions.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+                        </div>
 
-        <!-- Call To Action Section -->
-        <section class="cta-section section-padding fade-in-section">
-            <div class="container">
-                <h2 style="font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 20px;">Your Health Is Our Priority</h2>
-                <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; opacity: 0.9;">Don't wait. Schedule your comprehensive health check-up today and take control of your well-being.</p>
-                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
-                    <a href="appointment.html" class="btn btn-cta-primary">Book a Health Check-Up</a>
-                    <a href="404.html" class="btn btn-cta-outline">Call: 1800-STACKLY</a>
+                        <textarea placeholder="Additional Notes or Symptoms" rows="4" style="padding: 12px 15px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; font-family: inherit; resize: vertical; background-color: var(--bg);"></textarea>
+                        
+                        <button type="submit" class="btn btn-primary" style="margin-top: 10px; width: 100%; border: none; font-size: 1.1rem; padding: 14px;">Confirm Appointment</button>
+                        
+                        <p id="formMessage" style="text-align: center; font-weight: bold; margin-top: 10px; font-size: 0.95rem;"></p>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer Section -->
+     <!-- Footer Section -->
     <footer class="footer" style="background-color: #e0f2fe;">
         <div class="container">
             <div class="footer-container">
@@ -156,8 +121,8 @@
                     <a href="index.html" class="logo">
                         <img src="images/logo/logo.webp" alt="Stackly Logo" class="logo-img" />
                     </a>
-                <p>Providing world-class healthcare, advanced medical services, and compassionate patient care for you and your family.</p>
-             <div style="display: flex; gap: 12px; margin-top: 20px;">
+                    <p>Providing world-class healthcare, advanced medical services, and compassionate patient care for you and your family.</p>
+                    <div style="display: flex; gap: 12px; margin-top: 20px;">
                         <a href="404.html" title="Facebook" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(3, 105, 161, 0.1); color: var(--primary-dark); font-weight: bold; text-decoration: none;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                         </a>
@@ -173,8 +138,8 @@
                         <a href="404.html" title="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(3, 105, 161, 0.1); color: var(--primary-dark); font-weight: bold; text-decoration: none;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                         </a>
-                    </div>    
-            </div>
+                    </div>
+                </div>
                 
                 <!-- Quick Links Column -->
                 <div class="footer-col">
@@ -224,5 +189,41 @@
     </button>
 
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const appointmentForm = document.getElementById('appointmentForm');
+            const formMessage = document.getElementById('formMessage');
+            const appEmail = document.getElementById('appEmail');
+            const appMobile = document.getElementById('appMobile');
+
+            if (appointmentForm) {
+                appointmentForm.addEventListener('submit', function(e) {
+                    e.preventDefault(); // Prevents page reload
+                    
+                    // Validate Email
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+                    if (!emailRegex.test(appEmail.value.trim())) {
+                        formMessage.textContent = "Please enter a valid email address.";
+                        formMessage.style.color = "var(--danger, #EF4444)";
+                        return;
+                    }
+
+                    // Validate Mobile Number
+                    if (appMobile.value.trim().length !== 10) {
+                        formMessage.textContent = "Please enter a valid 10-digit mobile number.";
+                        formMessage.style.color = "var(--danger, #EF4444)";
+                        return;
+                    }
+                    
+                    formMessage.textContent = "Thank you! Your appointment has been confirmed successfully.";
+                    formMessage.style.color = "var(--success, #22C55E)";
+                    
+                    appointmentForm.reset(); // Clears the form inputs
+                    
+                    setTimeout(() => { formMessage.textContent = ""; }, 5000);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
