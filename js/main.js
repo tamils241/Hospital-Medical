@@ -67,7 +67,34 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }, observerOptions);
 
-  document.querySelectorAll('.fade-in-section').forEach(section => {
+  document.querySelectorAll('.fade-in-section, .slide-hidden').forEach(section => {
     observer.observe(section);
+  });
+
+  // Counter Animation
+  const counters = document.querySelectorAll('.counter');
+  const counterObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = +counter.getAttribute('data-target');
+        const updateCount = () => {
+          const current = +counter.innerText;
+          const inc = target / 50; // Adjust for speed
+          if (current < target) {
+            counter.innerText = Math.ceil(current + inc);
+            setTimeout(updateCount, 30);
+          } else {
+            counter.innerText = target;
+          }
+        };
+        updateCount();
+        observer.unobserve(counter);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(counter => {
+    counterObserver.observe(counter);
   });
 });

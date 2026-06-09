@@ -11,7 +11,7 @@
   color: white;
   background:
     linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)),
-    url("../images/Business Consulting.webp") center/cover no-repeat;
+    url("../images/gallery/receptionist-working.webp") center/cover no-repeat;
 }
 
     .navbar {
@@ -74,6 +74,32 @@
       color: #e5e5e5;
       font-size: 18px;
       line-height: 1.7;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 28px;
+      color: white;
+      background: transparent;
+      border: 2px solid white;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-3px);
     }
 
     .home-btn {

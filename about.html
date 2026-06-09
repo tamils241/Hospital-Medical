@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Hospital & Medical Center</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <h2 style="color: var(--primary); margin-top: 15px;">Stackly</h2>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header" style="background-color: #e0f2fe;">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" aria-label="Stackly home">
+                <img src="images/logo/logo.webp" alt="Stackly Logo" class="logo-img" />
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Header Navigation Bar -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="doctors.html">Doctor</a></li>
+                    <li><a href="services.html">Service</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <!-- Auth Buttons -->
+                <div class="auth-buttons" style="display: flex; gap: 10px; margin-left: 20px;">
+                    <a href="page/Login.html" class="btn btn-outline">Login</a>
+                    <a href="page/Register.html" class="btn btn-primary">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero fade-in-section">
+            <!-- Background Video -->
+            <video class="hero-video" autoplay loop muted playsinline>
+                <source src="assets/videos/wavebreak.mp4" type="video/mp4">
+            </video>
+            <div class="container hero-content">
+                <h1>About Us</h1>
+                <p>Learn more about our mission to provide world-class healthcare, advanced medical services, and compassionate patient care.</p>
+            </div>
+        </section>
+
+        <!-- Hospital Stats & Growth Section -->
+        <section class="stats section-padding fade-in-section" style="background-color: var(--white);">
+            <div class="container">
+                <div class="grid stats-grid">
+                    <div class="stat-card slide-hidden slide-up" style="animation-delay: 0.1s;">
+                        <h3 class="stat-number"><span class="counter" data-target="25">0</span>+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-card slide-hidden slide-up" style="animation-delay: 0.2s;">
+                        <h3 class="stat-number"><span class="counter" data-target="50">0</span>k+</h3>
+                        <p>Hospital Growth</p>
+                    </div>
+                    <div class="stat-card slide-hidden slide-up" style="animation-delay: 0.3s;">
+                        <h3 class="stat-number"><span class="counter" data-target="150">0</span>+</h3>
+                        <p>Expert Doctors</p>
+                    </div>
+                    <div class="stat-card slide-hidden slide-up" style="animation-delay: 0.4s;">
+                        <h3 class="stat-number"><span class="counter" data-target="24">0</span>/7</h3>
+                        <p>Emergency Support</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section class="gallery section-padding fade-in-section">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin-bottom: 40px;">
+                    <h2 style="font-size: 2.2rem; color: var(--primary-dark);">Our Facility & Team</h2>
+                    <p style="color: var(--text); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Take a look inside Stackly Hospital and see the environment where we transform lives.</p>
+                </div>
+                
+                <div class="gallery-slider">
+                    <div class="gallery-slides">
+                        <img src="images/doctors/doctor-1.webp" alt="Gallery Image 1">
+                        <img src="images/doctors/doctor-2.webp" alt="Gallery Image 2">
+                        <img src="images/doctors/doctor-3.webp" alt="Gallery Image 3">
+                        <img src="images/doctors/doctor-4.webp" alt="Gallery Image 4">
+                        <img src="images/doctors/doctor-9.webp" alt="Gallery Image 5">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Excellence Section -->
+        <section class="excellence section-padding fade-in-section" style="background-color: var(--light-gray);">
+            <div class="container excellence-container">
+                <div class="excellence-image">
+                    <img src="images/doctors/doctor-9.webp" alt="Excellence in Healthcare">
+                </div>
+                <div class="excellence-content" style="text-align: left;">
+                    <h2 style="font-size: 2.2rem; color: var(--primary-dark); margin-bottom: 15px;">Excellence in Every Detail</h2>
+                    <p style="color: var(--text); font-size: 1.1rem; margin-bottom: 30px;">We combine the warmth of a community hospital with the precision of a world-class research center — because your health deserves nothing less.</p>
+
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">🤖</div>
+                            <div class="feature-text">
+                                <h4>AI-Powered Diagnostics</h4>
+                                <p>Machine learning algorithms assist our radiologists for faster, more accurate readings.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">🤝</div>
+                            <div class="feature-text">
+                                <h4>Multidisciplinary Teams</h4>
+                                <p>Specialists collaborate in tumor boards and complex case conferences for optimal outcomes.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">❤️</div>
+                            <div class="feature-text">
+                                <h4>Patient-First Philosophy</h4>
+                                <p>Every protocol, every decision, every interaction centers on patient dignity and comfort.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Journey Section -->
+        <section class="journey section-padding fade-in-section" style="background-color: var(--surface);">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin-bottom: 50px;">
+                    <h2 style="font-size: 2.2rem; color: var(--primary-dark);">Our Journey</h2>
+                    <p style="color: var(--text); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">A legacy of trust, care, and continuous innovation.</p>
+                </div>
+                
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <!-- 2000 -->
+                    <div style="background-color: #f0f9ff; padding: 30px; border-radius: 1rem; border-left: 5px solid var(--primary); box-shadow: 0 4px 10px rgba(3, 105, 161, 0.05);">
+                        <h3 style="color: var(--primary); font-size: 1.8rem; font-weight: 800; margin-bottom: 5px;">2000</h3>
+                        <h4 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 10px;">Foundation</h4>
+                        <p style="margin: 0; font-size: 0.95rem;">Stackly Hospital opens its doors in Salem with 50 beds and a team of 20 dedicated doctors.</p>
+                    </div>
+                    <!-- 2013 -->
+                    <div style="background-color: #f0f9ff; padding: 30px; border-radius: 1rem; border-left: 5px solid var(--primary); box-shadow: 0 4px 10px rgba(3, 105, 161, 0.05);">
+                        <h3 style="color: var(--primary); font-size: 1.8rem; font-weight: 800; margin-bottom: 5px;">2013</h3>
+                        <h4 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 10px;">NABH Accreditation</h4>
+                        <p style="margin: 0; font-size: 0.95rem;">Achieved National Accreditation Board certification, validating our commitment to quality standards.</p>
+                    </div>
+                    <!-- 2016 -->
+                    <div style="background-color: #f0f9ff; padding: 30px; border-radius: 1rem; border-left: 5px solid var(--primary); box-shadow: 0 4px 10px rgba(3, 105, 161, 0.05);">
+                        <h3 style="color: var(--primary); font-size: 1.8rem; font-weight: 800; margin-bottom: 5px;">2016</h3>
+                        <h4 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 10px;">Expansion to 200 Beds</h4>
+                        <p style="margin: 0; font-size: 0.95rem;">Major infrastructure expansion adding cardiac care, neurology, and a dedicated ICU wing.</p>
+                    </div>
+                    <!-- 2019 -->
+                    <div style="background-color: #f0f9ff; padding: 30px; border-radius: 1rem; border-left: 5px solid var(--primary); box-shadow: 0 4px 10px rgba(3, 105, 161, 0.05);">
+                        <h3 style="color: var(--primary); font-size: 1.8rem; font-weight: 800; margin-bottom: 5px;">2019</h3>
+                        <h4 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 10px;">Robotic Surgery Launch</h4>
+                        <p style="margin: 0; font-size: 0.95rem;">Tamil Nadu's first Da Vinci robotic surgical system installed, revolutionizing minimally invasive care.</p>
+                    </div>
+                    <!-- 2022 -->
+                    <div style="background-color: #f0f9ff; padding: 30px; border-radius: 1rem; border-left: 5px solid var(--primary); box-shadow: 0 4px 10px rgba(3, 105, 161, 0.05);">
+                        <h3 style="color: var(--primary); font-size: 1.8rem; font-weight: 800; margin-bottom: 5px;">2022</h3>
+                        <h4 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 10px;">Research Institute</h4>
+                        <p style="margin: 0; font-size: 0.95rem;">Stackly Research Institute inaugurated, focusing on oncology, cardiology, and infectious disease.</p>
+                    </div>
+                    <!-- 2024 -->
+                    <div style="background-color: #f0f9ff; padding: 30px; border-radius: 1rem; border-left: 5px solid var(--primary); box-shadow: 0 4px 10px rgba(3, 105, 161, 0.05);">
+                        <h3 style="color: var(--primary); font-size: 1.8rem; font-weight: 800; margin-bottom: 5px;">2024</h3>
+                        <h4 style="color: var(--primary-dark); font-size: 1.2rem; margin-bottom: 10px;">300-Bed Expansion</h4>
+                        <p style="margin: 0; font-size: 0.95rem;">New tower inaugurated, bringing total capacity to 300 beds with 12 state-of-the-art operating theaters.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+     <!-- Footer Section -->
+    <footer class="footer" style="background-color: #e0f2fe;">
+        <div class="container">
+            <div class="footer-container">
+                <!-- About Column -->
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo/logo.webp" alt="Stackly Logo" class="logo-img" />
+                    </a>
+                    <p>Providing world-class healthcare, advanced medical services, and compassionate patient care for you and your family.</p>
+
+                     <div style="display: flex; gap: 12px; margin-top: 20px;">
+                        <a href="404.html" title="Facebook" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(3, 105, 161, 0.1); color: var(--primary-dark); font-weight: bold; text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="404.html" title="Instagram" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(3, 105, 161, 0.1); color: var(--primary-dark); font-weight: bold; text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="404.html" title="X" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(3, 105, 161, 0.1); color: var(--primary-dark); font-weight: bold; text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+                        </a>
+                        <a href="404.html" title="YouTube" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(3, 105, 161, 0.1); color: var(--primary-dark); font-weight: bold; text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="doctors.html">Find a Doctor</a></li>
+                        <li><a href="404.html">Book Appointment</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Column -->
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html">General Checkup</a></li>
+                        <li><a href="services.html">Cardiology</a></li>
+                        <li><a href="services.html">Neurology</a></li>
+                        <li><a href="services.html">Orthopedics</a></li>
+                        <li><a href="services.html">Emergency Care</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>📍 123 Health Ave, Medical City</li>
+                        <li>📞 1800-STACKLY</li>
+                        <li>✉️ info@stacklyhospital.com</li>
+                        <li>🕒 24/7 Emergency Service</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom" style="text-align: center; border-top: 1px solid rgba(14, 165, 233, 0.25); padding-top: 20px;">
+                <p>&copy; 2026 MediCare Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
