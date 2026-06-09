@@ -3,15 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register | Business Solutions</title>
-  <link rel="stylesheet" href="../css/Register.css">
+  <title>Register | Hospital & Medical</title>
+  <link rel="stylesheet" href="../css/Login.css">
+  <style>
+    body {
+      margin: 0;
+      background-color: #f0f9ff;
+      font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .auth-page {
+      width: 100%;
+      max-width: 1000px;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    .auth-panel {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(3, 105, 161, 0.12);
+      overflow: hidden;
+    }
+    @media (min-width: 768px) {
+      .auth-panel {
+        flex-direction: row;
+      }
+      .auth-visual, .auth-card {
+        flex: 1;
+        padding: 3rem;
+      }
+    }
+    .auth-visual {
+      background: linear-gradient(135deg, rgba(3, 105, 161, 0.9) 0%, rgba(14, 165, 233, 0.9) 100%);
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+    .auth-brand {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+    .auth-brand img {
+      width: 150px;
+      margin: 0 auto;
+    }
+    .auth-card {
+      padding: 2rem;
+    }
+    .auth-copy {
+      margin-bottom: 2rem;
+    }
+    .auth-copy h1 {
+      color: #0369A1;
+      margin: 0.5rem 0;
+    }
+    .auth-label {
+      color: #0EA5E9;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+    .auth-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #0369A1;
+      font-weight: 500;
+    }
+    .auth-form input[type="email"],
+    .auth-form input[type="password"],
+    .auth-form input[type="text"],
+    .auth-form input[type="tel"] {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      border-radius: 0.5rem;
+      background-color: #F8FAFC;
+      box-sizing: border-box;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .role-selector {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .role-option {
+      flex: 1;
+    }
+    .role-box {
+      display: block;
+      text-align: center;
+      padding: 0.75rem;
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: #F8FAFC;
+      color: #0369A1;
+    }
+    .role-option input[type="radio"] {
+      display: none;
+    }
+    .role-option input[type="radio"]:checked + .role-box {
+      background-color: #0EA5E9;
+      color: white;
+      border-color: #0EA5E9;
+    }
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    .auth-submit {
+      width: 100%;
+      padding: 0.85rem;
+      background-color: #0EA5E9;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .auth-submit:hover {
+      background-color: #0369A1;
+    }
+    .link-button {
+      background: none;
+      border: none;
+      color: #0EA5E9;
+      cursor: pointer;
+      font-weight: 500;
+      padding: 0;
+    }
+    .link-button:hover {
+      text-decoration: underline;
+    }
+    .auth-switch {
+      margin-top: 1.5rem;
+      text-align: center;
+      color: #64748B;
+    }
+    .auth-switch a {
+      color: #0EA5E9;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .auth-switch a:hover {
+      text-decoration: underline;
+    }
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      color: #0369A1;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .back-home:hover {
+      text-decoration: underline;
+    }
+    .form-message {
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .form-message.error {
+      color: #EF4444;
+    }
+    .form-message.success {
+      color: #22C55E;
+    }
+    .hero-text {
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
   <main class="auth-page">
     <section class="auth-panel">
       <div class="auth-visual">
         <a class="auth-brand" href="../index.html">
-          <img src="../images/logo/logo.webp" alt="Business Solutions logo">
+          <img src="../images/logo/logo.webp" alt="Hospital & Medical logo">
         </a>
         <div>
           <p class="visual-label">Hospital & Medical</p>

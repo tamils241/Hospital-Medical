@@ -177,6 +177,17 @@ button {
   background: rgba(14, 165, 233, 0.08);
 }
 
+.mobile-back-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--primary-dark);
+  cursor: pointer;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
 .mobile-menu-btn {
   display: none;
   width: 44px;
@@ -277,7 +288,7 @@ main {
 }
 
 .footer-col .logo {
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 1.25rem;
   height: 50px;
   flex-direction: row;
@@ -341,6 +352,10 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: 0.4rem 1rem;
+  }
+  
+  .mobile-back-btn {
+    display: inline-flex;
   }
 
   .logo {
@@ -536,6 +551,41 @@ main {
     padding: 0.6rem 0.4rem;
     font-size: 0.85rem;
   }
+}
+
+/* ==========================================================================
+   Back To Top Button
+   ========================================================================== */
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 99;
+  border: none;
+  cursor: pointer;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
 }
 
 /* ==========================================================================
