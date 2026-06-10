@@ -180,19 +180,20 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Fallback gradient backgrounds for department images */
-        .bg-cardio { background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); }
-        .bg-neuro { background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); }
-        .bg-ortho { background: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%); }
-        .bg-pedia { background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); }
-        .bg-onco { background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); }
-        .bg-gyne { background: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%); }
-        .bg-derma { background: linear-gradient(120deg, #f6d365 0%, #fda085 100%); }
-        .bg-optha { background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); }
-        .bg-uro { background: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%); }
-        .bg-gastro { background: linear-gradient(120deg, #cfd9df 0%, #e2ebf0 100%); }
-        .bg-psych { background: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%); }
-        .bg-emerg { background: linear-gradient(120deg, #ff9a9e 0%, #fecfef 99%); }
+        /* Background images for department cards */
+        .bg-cardio { background-image: url('images/department/cardiology.webp'); }
+        .bg-neuro { background-image: url('images/department/neurology.webp'); }
+        .bg-ortho { background-image: url('images/department/orthopedics.webp'); }
+        .bg-pedia { background-image: url('images/department/pediatrics.webp'); }
+        .bg-onco { background-image: url('images/department/oncology.webp'); }
+        .bg-gyne { background-image: url('images/department/Gynecology.webp'); }
+        .bg-derma { background-image: url('images/department/dermatology.webp'); }
+        .bg-optha { background-image: url('images/department/ophthalmology.webp'); }
+        .bg-uro { background-image: url('images/department/urology.webp'); }
+        .bg-gastro { background-image: url('images/department/gastroenterology.webp'); }
+        .bg-psych { background-image: url('images/department/psychiatry.webp'); }
+        .bg-emerg { background-image: url('images/department/Emergency.webp'); }
+         
 
         /* Responsive breakpoints */
         @media (max-width: 900px) {
@@ -433,6 +434,18 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+         <!-- Call To Action Section -->
+        <section class="cta-section section-padding fade-in-section">
+            <div class="container">
+                <h2 style="font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 20px;">Your Health Is Our Priority</h2>
+                <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; opacity: 0.9;">Don't wait. Schedule your comprehensive health check-up today and take control of your well-being.</p>
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    <a href="appointment.html" class="btn btn-cta-primary">Book a Health Check-Up</a>
+                    <a href="404.html" class="btn btn-cta-outline">Call: 1800-STACKLY</a>
+                </div>
             </div>
         </section>
     </main>
