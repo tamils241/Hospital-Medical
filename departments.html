@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments - Hospital & Medical Center</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Specific Styles for Departments Page */
+        .page-hero {
+            position: relative;
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 80px 20px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(3, 105, 161, 0.5) 0%, rgba(14, 165, 233, 0.5) 100%);
+            z-index: -1;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            animation: slideDown 1s ease forwards;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: slideUp 1s ease forwards 0.3s;
+        }
+
+        .departments-section {
+            padding: 80px 20px;
+            background-color: #f8fafc;
+        }
+
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .dept-card {
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(3, 105, 161, 0.08);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .dept-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(3, 105, 161, 0.15);
+        }
+
+        /* Stagger animations for cards */
+        .dept-card:nth-child(1) { animation-delay: 0.1s; }
+        .dept-card:nth-child(2) { animation-delay: 0.2s; }
+        .dept-card:nth-child(3) { animation-delay: 0.3s; }
+        .dept-card:nth-child(4) { animation-delay: 0.4s; }
+        .dept-card:nth-child(5) { animation-delay: 0.5s; }
+        .dept-card:nth-child(6) { animation-delay: 0.6s; }
+        .dept-card:nth-child(7) { animation-delay: 0.7s; }
+        .dept-card:nth-child(8) { animation-delay: 0.8s; }
+        .dept-card:nth-child(9) { animation-delay: 0.9s; }
+        .dept-card:nth-child(10) { animation-delay: 1.0s; }
+        .dept-card:nth-child(11) { animation-delay: 1.1s; }
+        .dept-card:nth-child(12) { animation-delay: 1.2s; }
+
+        .dept-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .dept-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60%;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        }
+
+        .dept-icon {
+            position: absolute;
+            bottom: -25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #0ea5e9;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            border: 4px solid white;
+            z-index: 10;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .dept-card:hover .dept-icon {
+            background-color: #0369a1;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .dept-content {
+            padding: 35px 25px 25px;
+        }
+
+        .dept-content h3 {
+            color: #0369a1;
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            margin-top: 0;
+        }
+
+        .dept-content p {
+            color: #64748b;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .dept-link {
+            display: inline-flex;
+            align-items: center;
+            color: #0ea5e9;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .dept-link:hover {
+            color: #0369a1;
+        }
+
+        .dept-link svg {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .dept-card:hover .dept-link svg {
+            transform: translateX(5px);
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Fallback gradient backgrounds for department images */
+        .bg-cardio { background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); }
+        .bg-neuro { background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%); }
+        .bg-ortho { background: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%); }
+        .bg-pedia { background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%); }
+        .bg-onco { background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%); }
+        .bg-gyne { background: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%); }
+        .bg-derma { background: linear-gradient(120deg, #f6d365 0%, #fda085 100%); }
+        .bg-optha { background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); }
+        .bg-uro { background: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%); }
+        .bg-gastro { background: linear-gradient(120deg, #cfd9df 0%, #e2ebf0 100%); }
+        .bg-psych { background: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%); }
+        .bg-emerg { background: linear-gradient(120deg, #ff9a9e 0%, #fecfef 99%); }
+
+        /* Responsive breakpoints */
+        @media (max-width: 900px) {
+            .departments-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            .page-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .departments-grid {
+                grid-template-columns: 1fr;
+            }
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+            .page-hero {
+                padding: 60px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <h2 style="color: var(--primary); margin-top: 15px;">Stackly</h2>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header" style="background-color: #e0f2fe;">
+        <div class="container nav-container">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <button onclick="history.back()" class="mobile-back-btn" aria-label="Go Back">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                </button>
+                <a href="index.html" class="logo" aria-label="Stackly home">
+                    <img src="images/logo/logo.webp" alt="Stackly Logo" class="logo-img" />
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-btn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- Header Navigation Bar -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="doctors.html">Doctor</a></li>
+                    <li><a href="departments.html" class="active">Departments</a></li>
+                    <li><a href="services.html">Service</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <!-- Auth Buttons -->
+                <div class="auth-buttons" style="display: flex; gap: 10px; margin-left: 20px;">
+                    <a href="page/Login.html" class="btn btn-outline">Login</a>
+                    <a href="page/Register.html" class="btn btn-primary">Register</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <!-- Background Video -->
+            <video class="hero-video" autoplay loop muted playsinline>
+                <source src="assets/videos/wavebreak.mp4" type="video/mp4">
+            </video>
+            <div>
+                <h1>Medical Departments</h1>
+                <p>Explore our specialized medical departments equipped with world-class facilities and expert healthcare professionals dedicated to your well-being.</p>
+            <div class="hero-actions" style="margin-top: 30px; display: flex; gap: 15px; justify-content: center;">
+                    <a href="appointment.html" class="btn btn-primary">Schedule a Visit</a>
+                    <a href="departments.html" class="btn btn-outline" style="background: white;">Our Departments</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Departments Grid Section -->
+        <section class="departments-section">
+            <div class="departments-grid">
+                
+                <!-- Department 1 -->
+                <div class="dept-card">
+                    <div class="dept-image bg-cardio">
+                        <div class="dept-icon">❤️</div>
+                    </div>
+                    <div class="dept-content">
+                        <h3>Cardiology</h3>
+                        <p>Comprehensive heart care including diagnostic testing, advanced cardiac surgery, and rehabilitation programs.</p>
+                        <a href="services.html" class="dept-link">Learn More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <!-- Department 2 -->
+                <div class="dept-card">
+                    <div class="dept-image bg-neuro">
+                        <div class="dept-icon">🧠</div>
+                    </div>
+                    <div class="dept-content">
+                        <h3>Neurology</h3>
+                        <p>Expert diagnosis and treatment for disorders of the brain, spinal cord, and central nervous system.</p>
+                        <a href="services.html" class="dept-link">Learn More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <!-- Department 3 -->
+                <div class="dept-card">
+                    <div class="dept-image bg-ortho">
+                        <div class="dept-icon">🦴</div>
+                    </div>
+                    <div class="dept-content">
+                        <h3>Orthopedics</h3>
+                        <p>Specialized care for bones, joints, and muscles, ranging from sports injuries to complex joint replacements.</p>
+                        <a href="services.html" class="dept-link">Learn More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <!-- Department 4 -->
+                <div class="dept-card">
+                    <div class="dept-image bg-pedia">
+                        <div class="dept-icon">👶</div>
+                    </div>
+                    <div class="dept-content">
+                        <h3>Pediatrics</h3>
+                        <p>Compassionate and specialized healthcare for infants, children, and adolescents through all stages of growth.</p>
+                        <a href="services.html" class="dept-link">Learn More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <!-- Department 5 -->
+                <div class="dept-card">
+                    <div class="dept-image bg-onco">
+                        <div class="dept-icon">🎗️</div>
+                    </div>
+                    <div class="dept-content">
+                        <h3>Oncology</h3>
+                        <p>Advanced cancer care utilizing the latest treatments, therapies, and a multidisciplinary approach for patients.</p>
+                        <a href="services.html" class="dept-link">Learn More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <!-- Department 6 -->
+                <div class="dept-card">
+                    <div class="dept-image bg-gyne">
+                        <div class="dept-icon">👩‍⚕️</div>
+                    </div>
+                    <div class="dept-content">
+                        <h3>Gynecology</h3>
+                        <p>Complete women's healthcare services including maternity, reproductive health, and preventive screenings.</p>
+                        <a href="services.html" class="dept-link">Learn More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <!-- Department 7 -->
+                <div class="dept-card">
+                    <div class="dept-image bg-derma">
+                        <div class="dept-icon">🧴</div>
+                    </div>
+                    <div class="dept-content">
+                        <h3>Dermatology</h3>
+                        <p>Expert evaluation and treatment for all conditions related to skin, hair, and nails using modern therapies.</p>
+                        <a href="services.html" class="dept-link">Learn More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <!-- Department 8 -->
+                <div class="dept-card">
+                    <div class="dept-image bg-optha">
+                        <div class="dept-icon">👁️</div>
+                    </div>
+                    <div class="dept-content">
+                        <h3>Ophthalmology</h3>
+                        <p>Comprehensive eye care ranging from routine vision tests to advanced surgical correction procedures.</p>
+                        <a href="services.html" class="dept-link">Learn More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <!-- Department 9 -->
+                <div class="dept-card">
+                    <div class="dept-image bg-uro">
+                        <div class="dept-icon">💧</div>
+                    </div>
+                    <div class="dept-content">
+                        <h3>Urology</h3>
+                        <p>Advanced diagnostic and surgical services for urinary tract disorders and male reproductive health.</p>
+                        <a href="services.html" class="dept-link">Learn More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <!-- Department 10 -->
+                <div class="dept-card">
+                    <div class="dept-image bg-gastro">
+                        <div class="dept-icon">🍏</div>
+                    </div>
+                    <div class="dept-content">
+                        <h3>Gastroenterology</h3>
+                        <p>Specialized treatment and endoscopy services for disorders of the digestive system and liver.</p>
+                        <a href="services.html" class="dept-link">Learn More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <!-- Department 11 -->
+                <div class="dept-card">
+                    <div class="dept-image bg-psych">
+                        <div class="dept-icon">🧩</div>
+                    </div>
+                    <div class="dept-content">
+                        <h3>Psychiatry</h3>
+                        <p>Compassionate mental health services offering counseling, therapy, and psychiatric evaluations.</p>
+                        <a href="services.html" class="dept-link">Learn More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+
+                <!-- Department 12 -->
+                <div class="dept-card">
+                    <div class="dept-image bg-emerg">
+                        <div class="dept-icon">🚑</div>
+                    </div>
+                    <div class="dept-content">
+                        <h3>Emergency Medicine</h3>
+                        <p>24/7 rapid response and trauma care equipped with state-of-the-art life-saving technology.</p>
+                        <a href="services.html" class="dept-link">Learn More <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer" style="background-color: #e0f2fe;">
+        <div class="container">
+            <div class="footer-container">
+                <!-- About Column -->
+                <div class="footer-col">
+                    <a href="index.html" class="logo">
+                        <img src="images/logo/logo.webp" alt="Stackly Logo" class="logo-img" />
+                    </a>
+                    <p>Providing world-class healthcare, advanced medical services, and compassionate patient care for you and your family.</p>
+                    <div style="display: flex; gap: 12px; margin-top: 20px;">
+                        <a href="404.html" title="Facebook" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(3, 105, 161, 0.1); color: var(--primary-dark); font-weight: bold; text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        </a>
+                        <a href="404.html" title="Instagram" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(3, 105, 161, 0.1); color: var(--primary-dark); font-weight: bold; text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        </a>
+                        <a href="404.html" title="X" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(3, 105, 161, 0.1); color: var(--primary-dark); font-weight: bold; text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+                        </a>
+                        <a href="404.html" title="YouTube" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(3, 105, 161, 0.1); color: var(--primary-dark); font-weight: bold; text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
+                        </a>
+                        <a href="404.html" title="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background-color: rgba(3, 105, 161, 0.1); color: var(--primary-dark); font-weight: bold; text-decoration: none;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links Column -->
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="doctors.html">Find a Doctor</a></li>
+                        <li><a href="appointment.html">Book Appointment</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Column -->
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html">General Checkup</a></li>
+                        <li><a href="services.html">Cardiology</a></li>
+                        <li><a href="services.html">Neurology</a></li>
+                        <li><a href="services.html">Orthopedics</a></li>
+                        <li><a href="services.html">Emergency Care</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>📍 123 Health Ave, Medical City</li>
+                        <li>📞 1800-STACKLY</li>
+                        <li>✉️ info@stacklyhospital.com</li>
+                        <li>🕒 24/7 Emergency Service</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom" style="text-align: center; border-top: 1px solid rgba(14, 165, 233, 0.25); padding-top: 20px;">
+                <p>&copy; 2026 MediCare Hospital. All rights reserved. <span style="margin: 0 10px;">|</span> <a href="404.html" style="color: var(--primary-dark); text-decoration: none; font-weight: 600;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

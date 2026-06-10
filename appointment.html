@@ -78,7 +78,7 @@
                             
                             <input id="appEmail" type="email" placeholder="Email Address" style="padding: 12px 15px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background-color: var(--bg);" required>
                             
-                            <input type="date" style="padding: 12px 15px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background-color: var(--bg); color: var(--text); font-family: inherit;" required>
+                            <input id="appDate" type="date" style="padding: 12px 15px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background-color: var(--bg); color: var(--text); font-family: inherit;" required>
                             
                             <select style="padding: 12px 15px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; background-color: var(--bg); color: var(--text);" required>
                                 <option value="" disabled selected>Select Department</option>
@@ -178,7 +178,7 @@
             </div>
             
             <div class="footer-bottom" style="text-align: center; border-top: 1px solid rgba(14, 165, 233, 0.25); padding-top: 20px;">
-                <p>&copy; 2026 MediCare Hospital. All rights reserved.</p>
+                <p>&copy; 2026 MediCare Hospital. All rights reserved. <span style="margin: 0 10px;">|</span> <a href="404.html" style="color: var(--primary-dark); text-decoration: none; font-weight: 600;">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
@@ -195,6 +195,15 @@
             const formMessage = document.getElementById('formMessage');
             const appEmail = document.getElementById('appEmail');
             const appMobile = document.getElementById('appMobile');
+            const appDate = document.getElementById('appDate');
+
+            if (appDate) {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                appDate.setAttribute('min', `${year}-${month}-${day}`);
+            }
 
             if (appointmentForm) {
                 appointmentForm.addEventListener('submit', function(e) {

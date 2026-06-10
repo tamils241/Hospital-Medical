@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', function () {
       mobileMenuBtn.classList.toggle('active');
-      mainNav.classList.toggle('active');
+      mainNav?.classList.toggle('active');
     });
   }
 
